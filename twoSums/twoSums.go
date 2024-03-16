@@ -16,6 +16,7 @@ Output: [0,1]
 Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 */
 
+// complexity (n²)
 func twoSum1(arr []int, value int) []int {
 	res := []int{}
 	for i := 0; i < len(arr); i++ {
@@ -30,6 +31,7 @@ func twoSum1(arr []int, value int) []int {
 	return res
 }
 
+// complexity (n²)
 func twoSum2(arr []int, value int) []int {
 	for i := 0; i < len(arr); i++ {
 		diff := value - arr[i]
@@ -38,6 +40,23 @@ func twoSum2(arr []int, value int) []int {
 				return []int{arr[i], arr[j]}
 			}
 		}
+	}
+
+	return nil
+}
+
+// complexity (n)
+func twoSumMap(arr []int, value int) []int {
+	cache := map[int]int{}
+	for i := 0; i < len(arr); i++ {
+
+		diff := value - arr[i]
+		if _, ok := cache[diff]; !ok {
+			cache[i] = arr[i]
+
+		}
+
+		return []int{arr[i], diff}
 	}
 
 	return nil

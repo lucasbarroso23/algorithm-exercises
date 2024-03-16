@@ -24,7 +24,7 @@ func start() {
 
 	mux.HandleFunc("/checkmarx", handler)
 
-	http.ListenAndServe(":8233", mux)
+	log.Fatal(http.ListenAndServe(":8233", mux))
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {

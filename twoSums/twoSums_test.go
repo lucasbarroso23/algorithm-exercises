@@ -20,4 +20,12 @@ func TestTwoSums(t *testing.T) {
 		result := twoSum2(data, value)
 		t.Logf("two sums result: %+v", result)
 	})
+
+	t.Run("twoSumsMap", func(t *testing.T) {
+		data := []int{3, 4, 1, 5}
+		value := 8
+
+		result := twoSumMap(data, value)
+		t.Logf("two sums result: %+v", result)
+	})
 }
