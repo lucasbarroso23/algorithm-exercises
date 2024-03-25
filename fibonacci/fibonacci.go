@@ -34,3 +34,14 @@ func fibonacci2(n int) int {
 
 	return fibonacci2(n-1) + fibonacci2(n-2)
 }
+
+func fibonacciGoRoutine(c chan int) {
+	n := cap(c)
+	x, y := 0, 1
+
+	for i := 0; i < n; i++ {
+		c <- x
+		x, y = y, x+y
+	}
+	close(c)
+}
